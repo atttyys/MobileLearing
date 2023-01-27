@@ -72,6 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
               side: const BorderSide(color: Colors.pink),
             ),
             child: const Text('OutlinedButton'),
+          ),
+          TextField(
+            decoration: new InputDecoration(labelText: 'ชื่อรายการ'),
+            autofocus: true,
+          ),
+          TextField(
+            decoration: new InputDecoration(labelText: 'ชื่อรายการ'),
+            keyboardType: TextInputType.number,
           )
         ],
       )),
