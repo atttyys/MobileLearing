@@ -11,15 +11,10 @@ void main(List<String> args) {
   // print('จำนวน ' + fur1.getAmount().toString() + ' ชิ้น');
   // state 6 <<
 
-  // use  overriding method
+  // use  overriding method from forniture constructor
   fur1.show2(7, 700.99, 'Sofar');
 
   // state 1 >>
-
-  // print(product1.name);
-  // print(product1.price);
-  // product1.show();
-  // product1.show2();
 
   // List list1 = ['string',123,8.8,false];
   // print(list1.length);
@@ -58,21 +53,32 @@ void main(List<String> args) {
 
   // end state 1 <<
 
-  //state 4 >>
+  // state 2 >>
+
+  // print(product1.name);
+  // print(product1.price);
+  // product1.show();
+  // product1.show2();
+
+  // state 2<<
+
+  //state 3&4 >>
 
   // Product product1 = new Product(); // F12+left-click เพื่อเช็ค constructor ของ Product
   // product1.setName('mobile');
   // print(product1.getName2());
   // print(product1.price);
 
-  // end state 4 <<
+  // end state 3&4 <<
 
   // state 5
+
   // Product product1 = new Product('Mobile', 999.99);
   // print(product1.getName());
   // product1.show();
   // Product product2 = new Product('Computer', 15000.99);
   // print(product2.getName());
   // product2.show();
+
   // state 5
 }

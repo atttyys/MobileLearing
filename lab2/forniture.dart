@@ -18,9 +18,10 @@ class Forniture extends Product {
         name2! +
         ' ราคา ' +
         i2 +
-        ' จำวนวณ ' +
+        ' บาท จำวนวณ ' +
         n.toString() +
         ' ชิ้น ราคา ' +
-        n2.toString());
+        n2.toString() +
+        'บาท');
   }
 }
