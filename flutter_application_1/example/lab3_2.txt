@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'เลือกเมณู',
+          'โปรแกรมนับเลข',
           style: TextStyle(fontSize: 30, color: Colors.lightGreenAccent),
         ),
         backgroundColor: Colors.black87,
@@ -81,20 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: new InputDecoration(labelText: 'ชื่อรายการ'),
             keyboardType: TextInputType.number,
           ),
-          Expanded(
-              child: ListView(
-            children: getData(30),
-          )),
-          Expanded(
-              child: ListView.builder(
-            itemCount: 20,
-            itemBuilder: (context, i) {
-              return ListTile(
-                  title: Text('เมณูที่ ${i + 1}',
-                      style: const TextStyle(fontSize: 30)),
-                  subtitle: Text('หัวข้อย่อยที่ ${i + 1}'));
-            },
-          )),
         ],
       )),
       floatingActionButton: FloatingActionButton(
@@ -120,20 +106,5 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       number--;
     });
-  }
-
-  List<Widget> getData(int count) {
-    List<Widget> data = [];
-
-    // for (var i = 0; i < count; i++) {
-    //   data.add(Text('เมณูที่ ${i + 1}', style: const TextStyle(fontSize: 30)));
-    // }
-    for (var i = 0; i < count; i++) {
-      var menu = ListTile(
-          title: Text('เมณูที่ ${i + 1}', style: const TextStyle(fontSize: 30)),
-          subtitle: Text('หัวข้อย่อยที่ ${i + 1}'));
-      data.add(menu);
-    }
-    return data;
   }
 }
