@@ -1,7 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/cafe_menu.dart';
+import 'package:flutter_application_1/money_box.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Project',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
-      home: const MyHomePage(title: 'เลือกเมณูเครื่องดื่ม'),
+      home: const MyHomePage(title: 'Home Page'),
     );
   }
 }
@@ -31,35 +29,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // ข้อมูลเมณู
-  List<CafeMenu> menu = [
-    CafeMenu('M-150', 10, 'assets/images/menu1.jpg'),
-    CafeMenu('กระทิงแดง', 10, 'assets/images/menu2.jpg'),
-    CafeMenu('คาราบาวแดง', 10, 'assets/images/menu3.jpg'),
-  ];
-  // แสดงข้อมูล
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('เลือกเมณูเครื่องดื่ม Chontis'),
+        title: const Text('My Account Chontis',
+            style: TextStyle(fontSize: 30, color: Colors.lightGreenAccent)),
+        backgroundColor: Colors.black87,
       ),
-      body: ListView.builder(
-          itemCount: menu.length,
-          itemBuilder: ((context, index) {
-            CafeMenu drink = menu[index];
-            return ListTile(
-              leading: Image.asset(drink.img),
-              title: Text(
-                drink.name,
-                style: TextStyle(fontSize: 30),
-              ),
-              subtitle: Text(
-                'ราคา ' + drink.price.toString() + ' บาท',
-                style: TextStyle(fontSize: 24),
-              ),
-            );
-          })),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            MonkeyBox('ยอดคงเหลือ', 5000.55, Colors.black87, 150),
+            MonkeyBox('รายจ่าย', 1500.55, Colors.black87, 150),
+            MonkeyBox('รายรับ', 3000.55, Colors.black87, 150),
+            ],
+        ),
+      ),
     );
   }
 }
