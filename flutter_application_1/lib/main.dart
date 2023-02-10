@@ -46,6 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        textStyle: TextStyle(fontSize: 32),
+                        minimumSize: Size.fromHeight(72),
+                        shape: StadiumBorder()),
                     onPressed: () async {
                       setState(() {
                         isLoading = true; //แสดง loading
@@ -56,12 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
                     },
                     child: Text('Loading..')),
-                NeonButton(Colors.red),
-                NeonButton(Colors.greenAccent.shade700),
-                NeonButton(Colors.blue),
-                NeonButton(Colors.yellowAccent.shade700),
-                NeonButton(Colors.blueAccent.shade700),
-                NeonButton(Colors.white),
+                // NeonButton(Colors.red),
+                // NeonButton(Colors.greenAccent.shade700),
+                // NeonButton(Colors.blue),
+                // NeonButton(Colors.yellowAccent.shade700),
+                // NeonButton(Colors.blueAccent.shade700),
+                // NeonButton(Colors.white),
                 // SpinKitCircle(
                 //   size: 140,
                 //   itemBuilder: ((context, index) {
