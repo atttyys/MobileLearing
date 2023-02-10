@@ -26,7 +26,7 @@ class MonkeyBox extends StatelessWidget {
           children: [
             Text(
               title,
-              style:const TextStyle(
+              style: const TextStyle(
                   fontSize: 26,
                   color: Colors.lightGreenAccent,
                   fontWeight: FontWeight.bold),
@@ -35,7 +35,7 @@ class MonkeyBox extends StatelessWidget {
             Expanded(
                 child: Text(
               '${NumberFormat("#,###.##").format(amount)}',
-              style:const TextStyle(
+              style: const TextStyle(
                   fontSize: 26,
                   color: Colors.white70,
                   fontWeight: FontWeight.bold),

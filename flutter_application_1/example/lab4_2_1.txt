@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/neon_button.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,11 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             NeonButton(Colors.blue),
             NeonButton(Colors.yellowAccent.shade700),
             NeonButton(Colors.blueAccent.shade700),
-            NeonButton(Colors.white),
-            SpinKitCircle(
-              size: 140,
-              color: Colors.white,
-            )
+            NeonButton(Colors.red),
           ],
         ),
       ),
