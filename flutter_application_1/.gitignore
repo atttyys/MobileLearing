@@ -52,12 +52,3 @@ build/
 pubspec.lock  # Except for application packages
 
 doc/api/
-
-# IntelliJ
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# Mac
-.DS_Store

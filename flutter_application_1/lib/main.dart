@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Home Page'),
+      home: const MyHomePage(title: 'Neon Button Chontis'),
     );
   }
 }
@@ -51,11 +51,26 @@ class _MyHomePageState extends State<MyHomePage> {
             NeonButton(Colors.white),
             SpinKitCircle(
               size: 140,
-              color: Colors.white,
-            )
+              itemBuilder: ((context, index) {
+                final colors = [Colors.green, Colors.red, Colors.yellow];
+                final color = colors[index % colors.length];
+                return DecoratedBox(
+                    decoration:
+                        BoxDecoration(color: color, shape: BoxShape.circle));
+              }),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+// class LoadingPage extends StatelessWidget {
+//   const LoadingPage({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
