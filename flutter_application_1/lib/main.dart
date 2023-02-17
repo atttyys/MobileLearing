@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/favourites_page.dart';
@@ -41,15 +39,36 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: Colors.blue.shade700,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return FormScreen();
+                }));
+              },
+              icon: Icon(Icons.add))
+        ],
       ),
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.greenAccent.shade400,
       drawer: const NavigationDrawer(),
-      body: Center(
-        child: Text('$index',
-            style: const TextStyle(
-                color: Colors.white,
-                fontSize: 120,
-                fontWeight: FontWeight.bold)),
+      body: ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return const Card(
+            elevation: 5,
+            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 30,
+                child: FittedBox(
+                  child: Text('500'),
+                ),
+              ),
+              title: Text('รายการ'),
+              subtitle: Text('วัน/เดือน/ปี'),
+            ),
+          );
+        },
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(

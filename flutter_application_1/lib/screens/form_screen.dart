@@ -9,9 +9,34 @@ class FormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Page 2"),
+        title: Text("เพิ่มข้อมูล"),
       ),
-      body: Container(),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Form(
+            child: Column(
+          children: [
+            TextFormField(
+              decoration: new InputDecoration(labelText: "ชื่อรายการ"),
+              autofocus: true,
+            ),
+            TextFormField(
+              decoration: new InputDecoration(labelText: "จำนวนเงิน"),
+              keyboardType: TextInputType.number,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("บันทึก"),
+              style: TextButton.styleFrom(
+                  textStyle: TextStyle(fontSize: 20),
+                  primary: Colors.white,
+                  backgroundColor: Colors.green),
+            )
+          ],
+        )),
+      ),
     );
   }
 }
