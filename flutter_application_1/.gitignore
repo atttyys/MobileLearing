@@ -52,3 +52,4 @@ build/
 pubspec.lock  # Except for application packages
 
 doc/api/
+/linux/flutter/generated_plugin_registrant.cc

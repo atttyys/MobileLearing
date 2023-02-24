@@ -47,7 +47,7 @@ class FormScreen extends StatelessWidget {
                     if (formKey.currentState!.validate()) {
                       var title = titleController.text;
                       var amount = amountController.text;
-                      Transaction statement = Transaction(
+                      Transactions statement = Transactions(
                           title: title,
                           amount: double.parse(amount),
                           date: DateTime.now());
