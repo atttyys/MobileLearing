@@ -1,7 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/favourites_page.dart';
+import 'package:flutter_application_1/model/transaction.dart';
+import 'package:flutter_application_1/providers/transaction_provider.dart';
 import 'package:flutter_application_1/screens/form_screen.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Project',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) {
+          return TransactionProvider();
+        }),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Project',
+        theme: ThemeData(
+          primarySwatch: Colors.teal,
+        ),
+        home: const MyHomePage(title: 'Home Page'),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const MyHomePage(title: 'Home Page'),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -46,30 +57,37 @@ class _MyHomePageState extends State<MyHomePage> {
                   return FormScreen();
                 }));
               },
-              icon: Icon(Icons.add))
+              icon: const Icon(Icons.add))
         ],
       ),
       backgroundColor: Colors.greenAccent.shade400,
       drawer: const NavigationDrawer(),
-      body: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return const Card(
-            elevation: 5,
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-            child: ListTile(
-              leading: CircleAvatar(
-                radius: 30,
-                child: FittedBox(
-                  child: Text('500'),
-                ),
-              ),
-              title: Text('รายการ'),
-              subtitle: Text('วัน/เดือน/ปี'),
-            ),
-          );
-        },
-      ),
+      body: Consumer(builder: ((context, TransactionProvider provider, child) {
+        var count = provider.transactions.length;
+        if (count <= 0) {
+          return Center(
+              child: Text("ไม่พบข้อมูล", style: TextStyle(fontSize: 35)));
+        } else {
+          return ListView.builder(
+              itemCount: provider.transactions.length,
+              itemBuilder: (context, int index) {
+                Transaction data = provider.transactions[index];
+                return Card(
+                  elevation: 5,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: FittedBox(child: Text(data.amount.toString()))),
+                    title: Text(data.title),
+                    subtitle: Text(
+                        DateFormat("dd/MM/yyyy HH:mm:ss").format(data.date)),
+                  ),
+                );
+              });
+        }
+      })),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           iconTheme: const IconThemeData(color: Colors.orange),
