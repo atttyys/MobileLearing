@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/display.dart';
 import 'package:flutter_application_1/screens/form_screen.dart';
 import 'package:flutter_application_1/screens/formscreen.dart';
 
@@ -35,9 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return DefaultTabController(
         length: 2,
         child: Scaffold(
-          body: TabBarView(children: [FormScreen(), 
-          // DisplayScreen()
-          ]),
+          body: TabBarView(children: [FormScreen(), DisplayScreen()]),
           bottomNavigationBar: TabBar(tabs: [
             Tab(
               text: 'บันทึกอุณหภูมิ',
