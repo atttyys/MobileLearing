@@ -53,8 +53,26 @@ class _MyHomePageState extends State<MyHomePage> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
-    return HomeScreen(
-      title: 'แอปรายจ่าย',
-    );
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          body: TabBarView(
+            children: [
+              HomeScreen(title: "แอพจ่ายตัง"),
+              FormScreen(),
+            ],
+          ),
+          bottomNavigationBar: TabBar(tabs: [
+            Tab(
+              icon: Icon(Icons.list),
+              text: "รายการ",
+            ),
+            Tab(
+              icon: Icon(Icons.add),
+              text: "เพิ่มข้อมูล",
+            )
+          ]),
+          backgroundColor: Colors.green,
+        ));
   }
 }

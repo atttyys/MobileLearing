@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_1/favourites_page.dart';
 import 'package:flutter_application_1/model/transaction.dart';
 import 'package:flutter_application_1/providers/transaction_provider.dart';
@@ -32,18 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   return FormScreen();
                 }));
               },
-              icon: const Icon(Icons.add)),
-          IconButton(
-              onPressed: () {
-                SystemNavigator.pop();
-              },
-              icon: Icon(
-                Icons.exit_to_app,
-                color: Colors.red,
-              )),
+              icon: const Icon(Icons.add))
         ],
       ),
-      // backgroundColor: Colors.greenAccent.shade400,
+      backgroundColor: Colors.greenAccent.shade400,
       drawer: const NavigationDrawer(),
       body: Consumer(builder: ((context, TransactionProvider provider, child) {
         var count = provider.transactions.length;
@@ -71,6 +62,46 @@ class _HomeScreenState extends State<HomeScreen> {
               });
         }
       })),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          iconTheme: const IconThemeData(color: Colors.orange),
+        ),
+        child: CurvedNavigationBar(
+          index: index,
+          height: 60.0,
+          items: const <Widget>[
+            Icon(
+              Icons.home,
+              size: 30,
+            ),
+            Icon(
+              Icons.search,
+              size: 30,
+            ),
+            Icon(
+              Icons.favorite,
+              size: 30,
+            ),
+            Icon(
+              Icons.settings,
+              size: 30,
+            ),
+            Icon(
+              Icons.person,
+              size: 30,
+            ),
+          ],
+          color: Colors.white,
+          buttonBackgroundColor: Colors.blue.shade200,
+          backgroundColor: Colors.transparent,
+          animationCurve: Curves.easeInOut,
+          animationDuration: const Duration(milliseconds: 600),
+          onTap: (index) => setState(() {
+            this.index = index;
+          }),
+          letIndexChange: (index) => true,
+        ),
+      ),
     );
   }
 }

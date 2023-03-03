@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/model/transaction.dart';
 import 'package:flutter_application_1/providers/transaction_provider.dart';
 import 'package:provider/provider.dart';
@@ -51,9 +52,13 @@ class FormScreen extends StatelessWidget {
                           title: title,
                           amount: double.parse(amount),
                           date: DateTime.now());
-                      var provider = Provider.of<TransactionProvider>(context,listen: false);
+                      var provider = Provider.of<TransactionProvider>(context,
+                          listen: false);
                       provider.addTransaction(statement);
-                      Navigator.pop(context);
+                      Navigator.pop(context,
+                          MaterialPageRoute(builder: (context) {
+                        return MyHomePage(title: 'แอพจ่ายตัง');
+                      }));
                     }
                   },
                   child: Text("บันทึก"),
