@@ -16,7 +16,7 @@ class _DisplayScreenState extends State<DisplayScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('รายงานการวัดอุณหภูมิ')),
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('student').snapshots(),
+        stream: FirebaseFirestore.instance.collection('students').snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());
