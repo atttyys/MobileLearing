@@ -1,12 +1,6 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/favourites_page.dart';
-import 'package:flutter_application_1/model/transaction.dart';
-import 'package:flutter_application_1/providers/transaction_provider.dart';
 import 'package:flutter_application_1/screens/form_screen.dart';
-import 'package:flutter_application_1/screens/home_screen.dart';
-import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_application_1/screens/formscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,20 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) {
-          return TransactionProvider();
-        }),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Project',
-        theme: ThemeData(
-          primarySwatch: Colors.teal,
-        ),
-        home: const MyHomePage(title: 'Home Page'),
-        debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      title: 'Flutter Project',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const MyHomePage(title: 'Home Page'),
     );
   }
 }
@@ -45,34 +31,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  void initState() {
-    super.initState();
-    Provider.of<TransactionProvider>(context, listen: false).initData();
-  }
-
-  int index = 0;
-  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 2,
         child: Scaffold(
-          body: TabBarView(
-            children: [
-              HomeScreen(title: "แอพจ่ายตัง"),
-              FormScreen(),
-            ],
-          ),
+          body: TabBarView(children: [FormScreen(), 
+          // DisplayScreen()
+          ]),
           bottomNavigationBar: TabBar(tabs: [
             Tab(
-              icon: Icon(Icons.list),
-              text: "รายการ",
+              text: 'บันทึกอุณหภูมิ',
             ),
             Tab(
-              icon: Icon(Icons.add),
-              text: "เพิ่มข้อมูล",
+              text: 'รายชื่อนักเรียน',
             )
           ]),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
         ));
   }
 }
