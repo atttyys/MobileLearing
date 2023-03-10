@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset('images/art.png'),
+              Image.asset('assets/images/img4.jpg'),
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton.icon(
