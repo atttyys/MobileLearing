@@ -1,0 +1,14 @@
+1.UI 2 หน้าจอ
+2.Class Pet
+3.Code command (Post API)
+4.Code command (Get API)
+
+จงสร้าง app Pet โดยใช้ API
+'https://petstore.swagger.io/#/pet'
+
+1.กำหนดให้หน้าแรกเป็นหน้าเพิ่ม Pet
+กำหนด id เป็นรหัสนิสิตใช้ 
+'https://petstore.swagger.io/v2/pet'
+
+2.หน้าที่สองแสดงข้อมูลที่ได้จาก Pet API 
+'https://petstore.swagger.io/v2/pet'
